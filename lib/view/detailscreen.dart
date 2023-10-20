@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shoppingapp/model/model.dart';
 import 'package:shoppingapp/model/myprovider.dart';
+import 'package:shoppingapp/view/cart.dart';
 
 class detail extends StatefulWidget {
   final int itemIndex;
@@ -20,9 +21,23 @@ class _detailState extends State<detail> {
       appBar: AppBar(
         title: Text(
           "Details",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Cart(),
+                    ));
+              },
+              icon: Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ))
+        ],
       ),
       bottomNavigationBar: Container(
         height: 50,
